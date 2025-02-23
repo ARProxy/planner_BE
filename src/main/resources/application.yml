@@ -1,0 +1,55 @@
+# nohup java -jar -DDB-URL=jdbc:mariadb://localhost:3306/zipple -DDB-NAME=root -DDB-PASSWORD=dongcci zipple.jar > app.log 2>&1 &
+# nohup java -jar -Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.port=1099 -Dcom.sun.management.jmxremote.rmi.port=5000 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Djava.rmi.server.hostname=44.203.190.167 -DDB-URL=jdbc:mariadb://localhost:3306/zipple -DDB-NAME=root -DDB-PASSWORD=dongcci zipple.jar > app.log 2>&1 &
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: ${DB-URL:jdbc:mariadb://localhost:3300/zipple}
+    username: ${DB-NAME:root}
+    password: ${DB-PASSWORD:dongcci}
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 100MB
+      location: /tmp/upload
+
+  oauth:
+    kakao:
+      client-id: a1c16483605d18b151534260ee7b3d0d
+      url:
+        auth: https://kauth.kakao.com
+        api: https://kapi.kakao.com
+
+  data:
+    redis:
+      port: 6380
+      host: localhost
+      password:
+
+jwt:
+  secret: GaXmsBiD6L1Z2M3NorAExZp8gr3uPXDR6J6iZxe4pfYKTf0SV1+I0xGqmuPG+nmLVCl9/2+lYB/VFI+AgoFGpg==
+
+logging:
+  level:
+    root: info
+
+springdoc:
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  swagger-ui:
+    path: /swagger
+    disable-swagger-default-url: true
+    display-request-duration: true
+    operations-sorter: alpha
