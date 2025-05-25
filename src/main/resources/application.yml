@@ -1,5 +1,5 @@
 # nohup java -jar -DDB-URL=jdbc:mariadb://localhost:3306/zipple -DDB-NAME=root -DDB-PASSWORD=dongcci zipple.jar > app.log 2>&1 &
-# nohup java -jar -Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.port=1099 -Dcom.sun.management.jmxremote.rmi.port=5000 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Djava.rmi.server.hostname=3.209.147.63 -DDB-URL=jdbc:mariadb://localhost:3306/zipple -DDB-NAME=root -DDB-PASSWORD=dongcci zipple.jar > app.log 2>&1 &
+# nohup java -jar -Dcom.sun.management.jmxremote=true -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.port=1099 -Dcom.sun.management.jmxremote.rmi.port=5000 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Djava.rmi.server.hostname=44.207.157.249 -DDB-URL=jdbc:mariadb://localhost:3306/zipple -DDB-NAME=root -DDB-PASSWORD=dongcci -DREDIS-PORT=6379 -DDDL-AUTH=none zipple.jar > app.log 2>&1 &
 server:
   port: 8081
   forward-headers-strategy: framework

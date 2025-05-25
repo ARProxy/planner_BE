@@ -59,7 +59,15 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("https://api.zipple.co.kr", "https://www.zipple.co.kr",  "https://zipple.co.kr", "http://localhost:3000", "https://kauth.kakao.com", "https://kapi.kakao.com"));
+        configuration.setAllowedOrigins(List.of(
+                "https://api.zipple.co.kr",
+                "https://www.zipple.co.kr",
+                "https://zipple.co.kr",
+                "http://localhost:3000",
+                "https://kauth.kakao.com",
+                "https://kapi.kakao.com",
+                "https://44.207.157.249"
+        ));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "FETCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
         configuration.setAllowCredentials(true);
